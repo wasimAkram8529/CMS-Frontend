@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const ComplaintTable = () => {
   const [complaints, setComplaints] = useState([]);
@@ -7,10 +8,14 @@ const ComplaintTable = () => {
   const [filterPriority, setFilterPriority] = useState("");
 
   const fetchData = async () => {
-    const res = await axios.get(
-      "https://cms-backend-8mck.onrender.com/api/complaints"
-    );
-    setComplaints(res.data);
+    try {
+      const res = await axios.get(
+        "https://cms-backend-8mck.onrender.com/api/complaints"
+      );
+      setComplaints(res.data);
+    } catch (error) {
+      console.error("Error fetching complaints:", error);
+    }
   };
 
   useEffect(() => {
@@ -25,7 +30,7 @@ const ComplaintTable = () => {
       );
       fetchData();
     } catch (error) {
-      console.log(error);
+      console.error("Error updating status:", error);
     }
   };
 
@@ -71,6 +76,7 @@ const ComplaintTable = () => {
             <th>Date</th>
             <th>Status</th>
             <th>Update</th>
+            <th>Details</th>
           </tr>
         </thead>
         <tbody>
@@ -90,6 +96,11 @@ const ComplaintTable = () => {
                   <option>In Progress</option>
                   <option>Resolved</option>
                 </select>
+              </td>
+              <td>
+                <Link to={`/complaints/${c._id}`}>
+                  <button>View</button>
+                </Link>
               </td>
             </tr>
           ))}

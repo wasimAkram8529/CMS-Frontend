@@ -107,3 +107,48 @@ td select {
   padding: 6px;
   border-radius: 4px;
 }
+
+.complaint-detail-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.complaint-detail-container h2 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 24px;
+}
+
+.complaint-field {
+  margin-bottom: 0.8rem;
+}
+
+.complaint-field strong {
+  display: inline-block;
+  width: 120px;
+  color: #444;
+}
+
+.complaint-description {
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.back-button {
+  margin-bottom: 1.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
