@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ComplaintForm from "./components/ComplaintForm";
+import ComplaintTable from "./components/ComplaintTable";
 
 function App() {
+  const [view, setView] = useState("form"); // 'form' or 'admin'
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: "2rem" }}>
+      <h1>Complaint Management System</h1>
+      <div style={{ marginBottom: "1rem" }}>
+        <button onClick={() => setView("form")}>User: Submit Complaint</button>
+        <button onClick={() => setView("admin")}>Admin: View Complaints</button>
+      </div>
+
+      {view === "form" ? <ComplaintForm /> : <ComplaintTable />}
     </div>
   );
 }
