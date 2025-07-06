@@ -18,7 +18,7 @@ const ComplaintForm = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://cms-backend-rose.vercel.app/api/complaints",
+        "https://cms-backend-8mck.onrender.com/api/complaints",
         formData
       );
       alert("Complaint submitted successfully!");

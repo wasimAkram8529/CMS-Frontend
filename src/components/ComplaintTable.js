@@ -8,7 +8,7 @@ const ComplaintTable = () => {
 
   const fetchData = async () => {
     const res = await axios.get(
-      "https://cms-backend-rose.vercel.app/api/complaints"
+      "https://cms-backend-8mck.onrender.com/api/complaints"
     );
     setComplaints(res.data);
   };
@@ -20,7 +20,7 @@ const ComplaintTable = () => {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        `https://cms-backend-rose.vercel.app/api/complaints/${id}`,
+        `https://cms-backend-8mck.onrender.com/api/complaints/${id}`,
         { status }
       );
       fetchData();
