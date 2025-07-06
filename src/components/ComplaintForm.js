@@ -17,7 +17,10 @@ const ComplaintForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/complaints", formData);
+      await axios.post(
+        "https://cms-backend-rose.vercel.app/api/complaints",
+        formData
+      );
       alert("Complaint submitted successfully!");
       setFormData({
         title: "",

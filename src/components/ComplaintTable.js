@@ -7,7 +7,9 @@ const ComplaintTable = () => {
   const [filterPriority, setFilterPriority] = useState("");
 
   const fetchData = async () => {
-    const res = await axios.get("http://localhost:5000/api/complaints");
+    const res = await axios.get(
+      "https://cms-backend-rose.vercel.app/api/complaints"
+    );
     setComplaints(res.data);
   };
 
@@ -17,7 +19,10 @@ const ComplaintTable = () => {
 
   const handleStatusChange = async (id, status) => {
     try {
-      await axios.put(`http://localhost:5000/api/complaints/${id}`, { status });
+      await axios.put(
+        `https://cms-backend-rose.vercel.app/api/complaints/${id}`,
+        { status }
+      );
       fetchData();
     } catch (error) {
       console.log(error);
